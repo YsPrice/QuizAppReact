@@ -1,0 +1,20 @@
+.difficulty {
+display:flex;
+position:absolute;
+
+justify-content: center;
+top:50%;
+left:19%;
+display:flex;
+width:60vw;
+align-items:center;
+height:8vh;
+};
+
+.di-buttons {
+position:relative;
+top:50%;
+width:100%;
+background-color:green;
+
+}
