@@ -15,7 +15,7 @@ max-height:5em;
 height:4em;
 width:85%;
 justify-content:center;
-margin-left:2%;
+
 background-color:rgba(100,150,100,.5);
 border-radius:1em;
 font-size:1.6em;
@@ -28,8 +28,14 @@ text-color:white;
 
 `;
 const Container = styled.div`
-height:100vh;
+height:120vh;
+max-height:auto;
 overflow:scroll;
+
+
+
+
+
 `
 const Exit = styled.p`
 color:white;
@@ -55,14 +61,13 @@ background-color:rgba(100,150,100,.5);
 border-radius:1em;
 font-size:1.6em;
 text-color:white;
-position:static;
-margin:2%;
+position:relative;
 display:flex;
 justify-content:center;
 
-&:hover {
-  transition:.2s;
-  background-color:lightgreen;
+
+@media screen and (max-width:400px){
+right:21%;
 }
 `;
 const Answers = styled.li`
@@ -97,6 +102,10 @@ font-size:3em;
 display:flex;
 justify-content:center;
 border-bottom:1px solid white;
+@media screen and (max-width:400px){
+text-wrap:nowrap;
+font-size:2.8em;
+}
 `;
 const QuestionWrapper = styled.div``;
 
@@ -107,11 +116,19 @@ border:1px solid transparent;
 border-radius:1em;
 `;
 const Wrapper = styled.div``;
+const Wrapper1 = styled.div`
+display:flex;
+justify-content:center;
+@media screen and (max-width:500px){
+  display:inline;
+}
+`;
 
 const QuestionAns = styled.p`
 color:white;
 font-size:1.3em;
 padding:1%;
+
 `;
 
 // ______________________
@@ -181,9 +198,11 @@ const Quiz = ({}) => {
         You Scored: {percentage.total}%
       </Score>
       </MDBContainer>
-      <MDBContainer style={{marginLeft:'20%'}}>
+      <MDBContainer>
+        <Wrapper1>
           <ButtonFin onClick= {()=> dispatch(resetQuiz())}><Link to="../" style={{color:'white'}}>Pick a different Quiz?</Link></ButtonFin>
           <ButtonFin onClick={()=> dispatch(resetQuiz())}>Try Again?</ButtonFin>
+          </Wrapper1>
     </MDBContainer>
     </MDBContainer>
       </MDBContainer>
@@ -205,7 +224,7 @@ const Quiz = ({}) => {
             <QuestionResult isCorrect={isCorrect}>
             <QuestionAns>Your Answer: {decodedUserAnswer}</QuestionAns>
             </QuestionResult>
-            <QuestionAns>Correct Answer: {decodedCorrectAnswer}</QuestionAns>
+            <QuestionAns style={{backgroundColor:'black', border:'1px solid black', borderRadius:'1em'}}>Correct Answer: {decodedCorrectAnswer}</QuestionAns>
         </QuestionWrapper>
        </>
         
@@ -238,7 +257,6 @@ const Quiz = ({}) => {
 }
       </MDBContainer>   
       </>
-      
     </MDBContainer>
     </Container>
   );

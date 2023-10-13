@@ -26,6 +26,10 @@ const Text = styled.p`
 color:white;
 font-size:2.6em;
 display:flex;
+text-wrap:nowrap;
+@media screen and (max-width:400px){
+
+}
 
 `;
 const TextContainer = styled.div`
@@ -62,7 +66,7 @@ width:20vw;
 font-size:2em;
 color:white;
 position:absolute;
-bottom:8%;
+bottom:1%;
 right:40%;
 margin-top:4%;
 
@@ -193,6 +197,9 @@ top:12%;
 height:15vh;
 
 border:none;
+@media screen and (max-width:400px){
+    top:18%;
+}
 `;
 const ButtonsContainerDif = styled.div`
 display:flex;
@@ -201,11 +208,14 @@ gap:2%;
 justify-content:center;
 background-color:transparent;
 position:relative;
-top:32%;
+top:35%;
 
 color:blue;
 height:15vh;
 border:none;
+@media screen and (max-width:400px){
+    top:40%;
+}
 `;
 const Question = styled.div`
 color:red;
